@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Student Enrollment</title>
+    <link rel="stylesheet" href="ads-css.css">
+</head>
+
+<div class = "header">
+        <img src = "https://plm.edu.ph/assets/plm-logo.DLcRDINN.png">
+
+        <p>PAMANTASAN NG LUNGSOD NG MAYNILA
+        </p>  
+
+        <button class="about-btn">About</button>
+</div>
+
+<body>
+
+    <div class="container">
+        <p></p>
+    </div>
+
+</body>
+</html>
