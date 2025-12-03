@@ -1,0 +1,83 @@
+    /* PROGRESS BAR */
+    .progress-container {
+        width: 100%;
+        max-width: 420px;
+        margin: auto;
+        position: relative;
+        padding-top: 40px;
+    }
+
+    .line-bg {
+        position: absolute;
+        top: 55px;
+        left: 20px;
+        right: 20px;
+        height: 4px;
+        background: #e7e6e6;
+        border-radius: 4px;
+    }
+
+    .line-fill {
+        position: absolute;
+        top: 55px;
+        left: 20px;
+        height: 4px;
+        background: #BF1A1A;
+        border-radius: 4px;
+        width: 0;
+        transition: width 0.4s ease;
+    }
+
+    .steps {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        z-index: 2;
+    }
+
+    .step {
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .circle {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 2px solid #bbb;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        background: #fff;
+        transition: 0.3s;
+    }
+
+    .label {
+        font-size: 13px;
+        color: #777;
+        margin-top: 6px;
+        width: 80px;
+    }
+
+    /* ACTIVE STEP */
+    .active .circle {
+        border-color: #BF1A1A;
+        color: #BF1A1A;
+    }
+
+    .active .label {
+        color: #BF1A1A;
+        font-weight: bold;
+    }
+
+    .completed .circle {
+        border-color: #BF1A1A;
+        background: #BF1A1A;
+        color: white;
+    }
+
+    .completed .label {
+        color: #BF1A1A;
+        font-weight: bold;
+    }
