@@ -286,7 +286,7 @@
             -webkit-appearance: none;
             -moz-appearance: none;
 
-            background-image: url(https://creazilla.com/media/icon/3219306/arrow-drop-down);
+            background-image: url('https://cdn-icons-png.flaticon.com/512/271/271210.png');
             background-repeat: no-repeat;
             background-size: 12px 12px;
             background-position: right 10px center; 
