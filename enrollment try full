@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Enrollment</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://plm.edu.ph/FooterImage.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+/* HEADER */
+.header {
+    width: 100%;
+    padding: 15px 2%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0px 1px 10px 1px #52525286;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header img {
+    width: 50px;
+    height: 50px;
+}
+
+.header p {
+    font-family: 'Times New Roman', Times, serif;
+    color: #b18819;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.about-btn {
+    all: unset;
+    font-size: 22px;
+    color: #080808;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.about-btn:hover {
+    color: #b18819;
+}
+
+.container {
+    background-color: #ffffff;
+    max-width: 1200px;
+    width: 90%;
+    margin: 100px auto 50px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0px 1px 10px 1px #52525286;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+th, td {
+    padding: 8px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+
+th {
+    background-color: #BF1A1A;
+    color: white;
+}
+
+td {
+    background: #f7f7f7;
+}
+
+.btn-add, .btn-remove {
+    padding: 6px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.btn-add {
+    background-color: #1a7fbf;
+    color: white;
+}
+
+.btn-add:hover {
+    background-color: #155a8a;
+}
+
+.btn-remove {
+    background-color: #bf1a1a;
+    color: white;
+}
+
+.btn-remove:hover {
+    background-color: #8a1212;
+}
+
+.next-btn {
+    margin-top: 40px; 
+    padding: 12px 25px;
+    background-color: #b18819;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    float: right;
+}
+
+.next-btn:hover {
+    background-color: #8a6912;
+}
+
+.progress-container {
+    width: 100%;
+    max-width: 420px;
+    margin: 30px auto;
+    position: relative;
+    padding-top: 40px;
+}
+
+.line-bg {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: #e7e6e6;
+    border-radius: 4px;
+}
+
+.line-fill {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    height: 4px;
+    background: #BF1A1A;
+    border-radius: 4px;
+    width: 0;
+    transition: width 0.4s ease;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+}
+
+.step {
+    text-align: center;
+    cursor: pointer;
+}
+
+.circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #bbb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    background: #fff;
+    transition: 0.3s;
+}
+
+.label {
+    font-size: 12px;
+    color: #777;
+    margin-top: 6px;
+    width: 80px;
+}
+
+.active .circle {
+    border-color: #BF1A1A;
+    color: #BF1A1A;
+}
+
+.active .label {
+    color: #BF1A1A;
+    font-weight: bold;
+}
+
+.completed .circle {
+    border-color: #BF1A1A;
+    background: #BF1A1A;
+    color: white;
+}
+
+.completed .label {
+    color: #BF1A1A;
+    font-weight: bold;
+}
+
+.search-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.search-input {
+    flex: 1 1 200px;
+    height: 35px;
+    border-radius: 6px;
+    border: none;
+    padding: 0 12px;
+    font-size: 14px;
+    background-color: #e2e6eb;
+}
+
+.search-input:focus {
+    outline: 2px solid #CBCBCB;
+}
+
+.search-button {
+    width: 40px;
+    height: 35px;
+    border: none;
+    border-radius: 6px;
+    background-color: #CBCBCB;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-button img {
+    width: 20px;
+    height: 20px;
+}
+
+.dropdown {
+    height: 35px;
+    border: none;
+    border-radius: 6px;
+    background-color: #CBCBCB;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0 30px 0 10px; /* enough space for arrow */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/271/271210.png');
+    background-repeat: no-repeat;
+    background-size: 12px 12px;
+    background-position: right 10px center; 
+}
+
+.noticeContainer {
+    flex: 1 1 100%;
+    text-align: center;
+    color: #BF1A1A;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 80px 10px 50px;
+    }
+
+    .header p {
+        font-size: 1.2rem;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    .next-btn {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+<div class="header">
+    <img src="https://plm.edu.ph/assets/plm-logo.DLcRDINN.png">
+    <p>PAMANTASAN NG LUNGSOD NG MAYNILA</p>
+    <button class="about-btn">About</button>
+</div>
+
+<div class="container">
+
+    <p>Student Kinemperlu</p>
+
+    <div class="progress-container">
+        <div class="line-bg"></div>
+        <div class="line-fill" id="line"></div>
+        <div class="steps">
+            <div class="step" id="step1">
+                <div class="circle">1</div>
+                <div class="label">SUBJECT ENLISTMENT</div>
+            </div>
+            <div class="step" id="step2">
+                <div class="circle">2</div>
+                <div class="label">CONFIRM ENROLLMENT</div>
+            </div>
+            <div class="step" id="step3">
+                <div class="circle">3</div>
+                <div class="label">VIEW SCHEDULE</div>
+            </div>
+        </div>
+    </div>
+
+    <h3>SUBJECTS FOR APPROVAL</h3>
+    <div class="table-wrapper">
+        <table id="approvalTable">
+            <tr>
+                <th>Action</th>
+                <th>SUBJECT CODE</th>
+                <th>SECTION</th>
+                <th>SUBJECT TITLE</th>
+                <th>SCHEDULE</th>
+            </tr>
+        </table>
+    </div>
+
+    <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search Subject...">
+        <button class="search-button">
+            <img src="search logo button.png" alt="Search Icon">
+        </button>
+        <select class="dropdown subject-dropdown">
+            <option value="">Sub Type</option>
+            <option value="MIN">Minor</option>
+            <option value="MAJ">Major</option>
+        </select>
+        <select class="dropdown semester-dropdown">
+            <option value="">Sem</option>
+            <option value="1st">First</option>
+            <option value="2nd">Second</option>
+            <option value="Mid">Midyear</option>
+        </select>
+        <div class="noticeContainer">
+            NOTICE: You are not yet enrolled unless your subjects are approved by the college department.
+        </div>
+    </div>
+
+    <h3>AVAILABLE SUBJECTS</h3>
+    <div class="table-wrapper">
+        <table id="resultsTable">
+            <tr>
+                <th>Action</th>
+                <th>SUBJECT CODE</th>
+                <th>SECTION</th>
+                <th>SUBJECT TITLE</th>
+                <th>UNITS</th>
+                <th>SCHEDULE</th>
+                <th>ROOM</th>
+                <th>AVAILABLE SLOTS</th>
+            </tr>
+            <tr>
+                <td><button class="btn-add" onclick="addSubject(this)">ADD</button></td>
+                <td>CS101</td>
+                <td>1</td>
+                <td>ADS</td>
+                <td>3</td>
+                <td>S 1:00–3:00</td>
+                <td>GCA 307</td>
+                <td>40</td>
+            </tr>
+            <tr>
+                <td><button class="btn-add" onclick="addSubject(this)">ADD</button></td>
+                <td>CS102</td>
+                <td>1</td>
+                <td>INFOMAN</td>
+                <td>3</td>
+                <td>W 1:00–3:00</td>
+                <td>GV 301</td>
+                <td>40</td>
+            </tr>
+        </table>
+    </div>
+
+    <button class="next-btn" onclick="nextStep()">NEXT</button>
+</div>
+
+<script>
+let currentStep = 1;
+
+function updateProgressBar() {
+    document.querySelectorAll(".step").forEach(s => {
+        s.classList.remove("active", "completed");
+    });
+
+    if (currentStep >= 1) document.getElementById("step1").classList.add(currentStep === 1 ? "active" : "completed");
+    if (currentStep >= 2) document.getElementById("step2").classList.add(currentStep === 2 ? "active" : "completed");
+    if (currentStep >= 3) document.getElementById("step3").classList.add(currentStep === 3 ? "active" : "completed");
+
+    const line = document.getElementById("line");
+    line.style.width = currentStep === 1 ? "0%" : currentStep === 2 ? "50%" : "100%";
+}
+
+function nextStep() {
+    if (currentStep < 3) {
+        currentStep++;
+        updateProgressBar();
+    }
+}
+
+updateProgressBar();
+
+function addSubject(btn) {
+    let row = btn.parentElement.parentElement;
+    let subjectCode = row.cells[1].textContent;
+    let section = row.cells[2].textContent;
+    let subjectTitle = row.cells[3].textContent;
+    let schedule = row.cells[5].textContent;
+
+    let newRow = document.createElement("tr");
+    newRow.innerHTML = `
+        <td><button class='btn-remove' onclick='removeSubject(this)'>REMOVE</button></td>
+        <td>${subjectCode}</td>
+        <td>${section}</td>
+        <td>${subjectTitle}</td>
+        <td>${schedule}</td>
+    `;
+
+    document.getElementById("approvalTable").appendChild(newRow);
+}
+
+function removeSubject(btn) {
+    btn.parentElement.parentElement.remove();
+}
+</script>
+</body>
+</html>
