@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Enrollment</title>
+
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-image: url('https://plm.edu.ph/FooterImage.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* HEADER */
+    .header {
+        max-width: 100%;
+        max-height: 60px;
+        padding: 15px 35px;
+        background-color: white;
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        box-shadow: 0px 1px 10px 1px #52525286;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    .header p {
+        font-family: 'Times New Roman', Times, serif;
+        color: #b18819;
+        font-size: 25px;
+        font-weight: bold;
+    }
+
+    .header img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .about-btn {
+        all: unset;
+        font-size: 22px;
+        color: #080808;
+        padding: 10px 20px;
+        position: absolute;
+        right: 3%;
+        cursor: pointer;
+    }
+
+    .about-btn:hover {
+        color: #b18819;
+    }
+
+    /* CONTAINER */
+    .container {
+        background-color: #ffffff;
+        min-height: 800px;
+        width: 1300pt;
+        margin: 0;
+        position: absolute;
+        top: 160px;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        padding: 30px 35px;
+        border-radius: 30px;
+        box-shadow: 0px 1px 10px 1px #52525286;
+        margin-bottom: 100px;
+    }
+
+    /* TABLES */
+    table {
+        max-width: 100%;
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        font-size: 16px;
+        margin-bottom: 50px;
+    }
+
+    th {
+        background-color: #BF1A1A;
+        color: white;
+        padding: 8px;
+    }
+
+    td {
+        padding: 8px;
+        background: #f7f7f7;
+        border-bottom: 1px solid #ccc;
+        text-align: center;
+    }
+
+    /* NICAS BUTTON */
+    .button-container {
+            position: fixed; 
+            right: 50px;
+            bottom: 50px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center; 
+            gap: 6px;
+            color: white;
+            width: auto;
+        }
+
+        .btn img {
+            width: 22px;
+            height: 22px;
+        }
+
+        .btn-print {
+            background-color: #CBCBCB;
+            color: black;
+        }
+
+        .btn-confirm {
+            background-color: #B18819;
+            color: black;
+        }
+
+        .btn-print:hover, .btn-confirm:hover {
+            background-color: #e2e6eb;
+        }
+
+    /* PROGRESS BAR */
+    .progress-container {
+        width: 100%;
+        max-width: 420px;
+        margin: auto;
+        position: relative;
+        padding-top: 40px;
+    }
+
+    .line-bg {
+        position: absolute;
+        top: 55px;
+        left: 20px;
+        right: 20px;
+        height: 4px;
+        background: #e7e6e6;
+        border-radius: 4px;
+    }
+
+    .line-fill {
+        position: absolute;
+        top: 55px;
+        left: 20px;
+        height: 4px;
+        background: #BF1A1A;
+        border-radius: 4px;
+        width: 0;
+        transition: width 0.4s ease;
+    }
+
+    .steps {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        z-index: 2;
+    }
+
+    .step {
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .circle {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 2px solid #bbb;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        background: #fff;
+        transition: 0.3s;
+    }
+
+    .label {
+        font-size: 13px;
+        color: #777;
+        margin-top: 6px;
+        width: 80px;
+    }
+
+    /* ACTIVE STEP */
+    .active .circle {
+        border-color: #BF1A1A;
+        color: #BF1A1A;
+    }
+
+    .active .label {
+        color: #BF1A1A;
+        font-weight: bold;
+    }
+
+    .completed .circle {
+        border-color: #BF1A1A;
+        background: #BF1A1A;
+        color: white;
+    }
+
+    .completed .label {
+        color: #BF1A1A;
+        font-weight: bold;
+    }
+
+</style>
+</head>
+
+<body>
+
+<!-- header -->
+<div class="header">
+    <img src="https://plm.edu.ph/assets/plm-logo.DLcRDINN.png">
+    <p>PAMANTASAN NG LUNGSOD NG MAYNILA</p>
+    <button class="about-btn">About</button>
+</div>
+
+<div class="container">
+
+     <p>student kinemperlu</p>
+
+    <!-- for progress bar -->
+    <div class="progress-container">
+        <div class="line-bg"></div>
+        <div class="line-fill" id="line"></div>
+
+        <div class="steps">
+            <div class="step" id="step1">
+                <div class="circle">1</div>
+                <div class="label">SUBJECT ENLISTMENT</div>
+            </div>
+
+            <div class="step" id="step2">
+                <div class="circle">2</div>
+                <div class="label">CONFIRM ENROLLMENT</div>
+            </div>
+
+            <div class="step" id="step3">
+                <div class="circle">3</div>
+                <div class="label">VIEW SCHEDULE</div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- subjects for approval table -->
+    <h3>TEMP: CONFIRMATION OF ENLISTMENT</h3>
+
+    <table id="confirmationTable">
+        <tr>
+            <th>SUBJECT CODE</th>
+            <th>SECTION</th> <!--di ko alam if units ba isasama dit or types-->
+            <th>SUBJECT TITLE</th>
+            <th>SCHEDULE</th> 
+        </tr>
+
+        <!-- sample -->
+        <tr>
+            <td>CS101</td>
+            <td>1</td>
+            <td>ADS</td>
+            <td>S 1:00–3:00</td>
+        </tr>
+
+    </table>
+
+     <!-- sample -->
+      <div class="button-container">
+        <button class="btn btn-print">
+            <img src="print logo buton.png" alt="Printer Icon"> Print Enrollment Form
+        </button>
+
+        <button class="btn btn-confirm">
+            Confirm Enrollment
+        </button>
+    </div>
+
+</div>
+
+
+<script>
+    let currentStep = 2;
+
+    function updateProgressBar() {
+        document.querySelectorAll(".step").forEach(s => {
+            s.classList.remove("active", "completed");
+        });
+
+        if (currentStep >= 1) document.getElementById("step1").classList.add(currentStep == 1 ? "active" : "completed");
+        if (currentStep >= 2) document.getElementById("step2").classList.add(currentStep == 2 ? "active" : "completed");
+        if (currentStep >= 3) document.getElementById("step3").classList.add(currentStep == 3 ? "active" : "completed");
+
+        const line = document.getElementById("line");
+        if (currentStep === 1) line.style.width = "0%";
+        if (currentStep === 2) line.style.width = "50%";
+        if (currentStep === 3) line.style.width = "100%";
+    }
+
+    function nextStep() {
+        if (currentStep < 3) {
+            currentStep++;
+            updateProgressBar();
+        }
+    }
+
+    updateProgressBar();
+
+</script>   
+</body>
+</html>
