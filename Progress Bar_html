@@ -1,3 +1,26 @@
+<!-- for progress bar -->
+    <div class="progress-container">
+        <div class="line-bg"></div>
+        <div class="line-fill" id="line"></div>
+
+        <div class="steps">
+            <div class="step" id="step1">
+                <div class="circle">1</div>
+                <div class="label">SUBJECT ENLISTMENT</div>
+            </div>
+
+            <div class="step" id="step2">
+                <div class="circle">2</div>
+                <div class="label">CONFIRM ENROLLMENT</div>
+            </div>
+
+            <div class="step" id="step3">
+                <div class="circle">3</div>
+                <div class="label">VIEW SCHEDULE</div>
+            </div>
+        </div>
+    </div>
+
 <script>
     let currentStep = 1;
 
