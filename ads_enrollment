@@ -1,1 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Student Enrollment</title>
+    <link rel="stylesheet" href="ads-css.css">
+</head>
 
+<style>
+    
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://plm.edu.ph/FooterImage.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* HEADER */
+        .header {
+            max-width: 100%;
+            max-height: 60px;
+            padding: 15px 35px;
+            background-color: white;
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            box-shadow: 0px 1px 10px 1px#52525286;
+            align-items: center;
+        }
+
+        .header p {
+            font-family: 'Times New Roman', Times, serif; 
+            color: #b18819; 
+            font-size: 25px; 
+            font-weight: bold; 
+            vertical-align: middle; 
+        }
+
+        .header img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .tabsBtn {
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            position: absolute;
+            right: 2%;
+            gap: 8px;
+        }
+
+        .tabs-btn { 
+            display: flex;
+            font-size: 22px;
+            position: relative;
+            display: inline-flex;
+            text-align: center;
+            background-color: transparent;
+            color: 080808;
+            padding: 10px 20px;
+            border-width: 0px;
+            cursor: pointer;
+        }
+
+        .tabs-btn::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -5px; 
+        width: 0;
+        height: 2px;
+        background-color: #b18819; 
+        text-decoration-thickness: 3px;
+        transition: width 0.6s ease-in-out; 
+        }
+
+        .tabs-btn:hover::after {
+            width: 100%; 
+        }
+
+        .tabs-btn:hover, .tabs-btn.active{
+            color: #b18819;
+        }
+
+        /* MAIN PANEL */
+        .container {
+            background-color: #ffffff;
+            min-height:s 600px;
+            max-width: 90%;        
+            margin: 0;            
+            position: absolute;
+            top: 130px;
+            left: 50%;
+            transform: translate(-50%, 0%);
+            padding: 30px 35px;       
+            border-radius: 30px;
+            text-align: center;
+            align-items: center;
+            box-shadow: 0px 1px 10px 1px #52525286;  
+        }    
+</style>
+
+<body>
+    
+    <!-- HEADER -->
+    <div class = "header">
+        <img src = "https://plm.edu.ph/assets/plm-logo.DLcRDINN.png">
+
+        <p>PAMANTASAN NG LUNGSOD NG MAYNILA
+        </p>  
+
+        <div class = "tabsBtn">
+            <button class="tabs-btn" onclick="openDashboard()">Dashboard</button>
+            <button class="tabs-btn" onclick="openProfile()">Student Profile</button>
+            <button class="tabs-btn" onclick="openGrades()">View Grades</button>
+            <button class="tabs-btn" onclick="openEnrollment()">Enrollment</button>
+            <button class="tabs-btn" onclick="openSignOut()">Sign Out</button>
+        </div>
+
+        <div class="container">
+            <p></p>
+        </div>
+    </div>
+
+    <script>
+        // TAB BUTTONS
+        function openProfile() { window.location.href = "ads_studentprofile.html"; }
+        function openGrades() { window.location.href = "ads_viewgrades.html"; }
+        function openEnrollment() { window.location.href = "ads_enrollment.html"; }
+        function openSignOut() { window.location.href = "ads_login.html"; }
+        
+    </script>
+
+</body>
+</html>
