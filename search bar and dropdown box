@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search & Dropdowns</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            background-color: #f2f2f2;
+        }
+
+        .search-container {
+            position: fixed;
+            top: 50%;
+            left: 40px;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .search-input {
+            width: 300px;
+            height: 35px;
+            border-radius: 6px;
+            border: none;
+            padding: 0 12px;
+            font-size: 14px;
+            background-color: #e2e6eb;
+        }
+
+        .search-input:focus {
+            outline: 2px solid #CBCBCB;
+        }
+
+        .search-button {
+            width: 50px;
+            height: 35px;
+            border: none;
+            border-radius: 6px;
+            background-color: #CBCBCB;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-button img {
+            width: 28px;
+            height: 22px;
+        }
+
+        .search-button:hover {
+            background-color: #e2e6eb;
+        }
+
+        .dropdown {
+            height: 35px;
+            border: none;
+            border-radius: 6px;
+            background-color: #CBCBCB;
+            cursor: pointer;
+            font-size: 14px;
+
+            padding: 0 30px 0 10px; 
+            text-align: center;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+
+            background-image: url('https://cdn-icons-png.flaticon.com/512/271/271210.png');
+            background-repeat: no-repeat;
+            background-size: 12px 12px;
+            background-position: right 10px center; 
+        }
+
+        .dropdown:hover {
+            background-color: #e2e6eb;
+        }
+
+        .subject-dropdown {
+            width: 90px; 
+        }
+
+        .semester-dropdown {
+            width: 80px; 
+        }
+
+        .dropdown option {
+            text-align: center;
+            height: 35px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="search-container">
+
+        <!-- Search input -->
+        <input type="text" class="search-input" placeholder="Search Subject...">
+
+        <!-- Search button -->
+        <button class="search-button">
+            <img src="search logo button.png" alt="Search Icon">
+        </button>
+
+        <!-- Subject Type Dropdown -->
+        <select class="dropdown subject-dropdown">
+            <option value="">Sub Type</option>
+            <option value="MIN">Minor</option>
+            <option value="MAJ">Major</option>
+        </select>
+
+        <!-- Semester Dropdown -->
+        <select class="dropdown semester-dropdown">
+            <option value="">Sem</option>
+            <option value="1st">First</option>
+            <option value="2nd">Second</option>
+            <option value="Mid">Midyear</option>
+        </select>
+
+    </div>
+
+</body>
+</html>
