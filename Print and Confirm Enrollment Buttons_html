@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buttons Only</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            background-color: #f2f2f2;
+        }
+
+        .button-container {
+            position: fixed; 
+            right: 50px;
+            bottom: 50px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center; 
+            gap: 6px;
+            color: white;
+            width: auto;
+        }
+
+        .btn img {
+            width: 22px;
+            height: 22px;
+        }
+
+        .btn-print {
+            background-color: #CBCBCB;
+            color: black;
+        }
+
+        .btn-confirm {
+            background-color: #B18819;
+            color: black;
+        }
+
+        .btn-print:hover, .btn-confirm:hover {
+            background-color: #e2e6eb;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="button-container">
+        <button class="btn btn-print">
+            <img src="print logo buton.png" alt="Printer Icon">
+            Print SER
+        </button>
+
+        <button class="btn btn-confirm">
+            Confirm Enrollment
+        </button>
+    </div>
+
+</body>
+</html>
